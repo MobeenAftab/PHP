@@ -27,7 +27,6 @@
       } else {
         $this->action = $this->request['action'];
       }
-      echo $this->controller;
     }
 
     /*

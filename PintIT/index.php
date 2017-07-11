@@ -24,5 +24,4 @@ $controller = $bootstrap->CreateController();
 if($controller){
 	$controller->ExecuteAction();
 }
-echo 'test';
 ?>

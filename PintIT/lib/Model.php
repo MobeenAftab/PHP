@@ -46,6 +46,11 @@
       $this->Execute();
       return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function LastinsertId () {
+
+      return $this->dbh->LastInsertId();
+    }
   }
 
 ?>

@@ -7,9 +7,7 @@
   define ("DB_NAME", "shareboard");
 
   //Define URL
-  define("ROOT_PATH", "/");
-  define("ROOT_URL", "http://localhost/phpBlog");
-
-
-
+  define("ROOT_PATH", "/PinIT/");
+  define("ROOT_URL", "http://localhost/PinIT/");
+  
 ?>
