@@ -38,7 +38,6 @@
     }
 
     public function Execute () {
-
       $this->stmt->Execute();
     }
 
@@ -48,7 +47,6 @@
     }
 
     public function LastinsertId () {
-
       return $this->dbh->LastInsertId();
     }
   }
