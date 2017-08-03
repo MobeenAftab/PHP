@@ -1,5 +1,13 @@
+.post-body {
+  border-radius: 5px;
+  background: #f4f4f4;
+  margin: 2rem;
+  padding: 1rem;
+  font-size: 2rem;
+}
+
 .post-date {
-  background: lightgrey;
+  background: darkgrey;
   padding: 4px;
   margin: 3px 0;
   display: block;
