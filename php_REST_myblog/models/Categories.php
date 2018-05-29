@@ -102,4 +102,24 @@
             printf("Error: %s.\n", $stmt->error);
             return false;
             }
+
+        public function delete() {
+            // create query
+            $query = 'DELETE FROM ' . $this->table . ' WHERE id = :id';
+
+            // Prepare statement
+            $stmt = $this->conn->prepare($query);
+
+            // Clean and bind ID
+            $this->id = htmlspecialchars(strip_tags($this->id));
+            $stmt->bindParam(':id', $this->id);
+
+            // Execute query
+            if ($stmt->execute()) {
+                return true;
+            }
+            // print error if error
+            printf("Error: %s.\n", $stmt->error);
+            return false;
+        }
     }
