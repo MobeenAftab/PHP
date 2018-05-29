@@ -45,6 +45,6 @@
         } else {
             // no Posts
             echo json_encode(
-                array('message' => 'No Post Found')
+                array('message' => 'No Category Found')
             );
     }

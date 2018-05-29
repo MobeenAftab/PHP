@@ -1,16 +1,17 @@
 <?php
-
+    // Class model for categories, contains functions to interact with catagories table.
     class Categories {
-        // DB Params
+        // DB Params.
         private $conn;
+        // name of table in DB.
         private $table = 'categories';
 
-        // Category properties
+        // Category properties from table
         public $id;
         public $name;
         public $created_at;
 
-        // Constructor with DB
+        // Constructor with connection to DB
         public function __construct($db) {
             $this->conn = $db;
         }
@@ -58,14 +59,10 @@
             $stmt = $this->conn->prepare($query);
 
             // Clean data.
-            // $this->id = htmlspecialchars(strip_tags($this->id));
             $this->name = htmlspecialchars(strip_tags($this->name));
-            // $this->created_at = htmlspecialchars(strip_tags($this->created_at));
 
             // Bind data
-            // $stmt->bindParam(':id', $this->id);
             $stmt->bindParam(':name', $this->name);
-            // $stmt->bindParam(':created_at', $this->created_at);
 
             // Execute query
             if ($stmt->execute()) {
@@ -76,6 +73,7 @@
             return false;
         }
 
+        // Update category element with id
         public function update() {
             // Create query
             $query = 'UPDATE ' . $this->table . '
@@ -102,7 +100,8 @@
             printf("Error: %s.\n", $stmt->error);
             return false;
             }
-
+        
+        // Delete element from table
         public function delete() {
             // create query
             $query = 'DELETE FROM ' . $this->table . ' WHERE id = :id';

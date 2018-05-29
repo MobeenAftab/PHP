@@ -175,6 +175,5 @@
             // print error if error
             printf("Error: %s.\n", $stmt->error);
             return false;
-
         }
     }

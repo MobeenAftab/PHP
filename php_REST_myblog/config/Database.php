@@ -1,6 +1,5 @@
 <?php
-// Class to connect to our databse
-
+    // Class to connect to our databse
     class Database {
         // DB params.
         private $host = 'localhost';
@@ -10,7 +9,7 @@
         private $conn;
 
 
-        // DB connect
+        // DB connect function, used by models to make DB connections.
         public function connect() {
             $this->conn = null;
 
