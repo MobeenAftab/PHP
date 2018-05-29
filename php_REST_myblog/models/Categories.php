@@ -48,6 +48,7 @@
             return $stmt;
         }
 
+        // Create new category
         public function create() {
             // Create query
             $query = 'INSERT INTO ' . $this->table . '
@@ -74,4 +75,31 @@
             printf("Error: %s.\n", $stmt->error);
             return false;
         }
+
+        public function update() {
+            // Create query
+            $query = 'UPDATE ' . $this->table . '
+            SET
+                name = :name
+            WHERE 
+                id = :id';
+
+            $stmt = $this->conn->prepare($query);
+
+            // Clean data.
+            $this->id = htmlspecialchars(strip_tags($this->id));
+            $this->name = htmlspecialchars(strip_tags($this->name));
+
+            // Bind data
+            $stmt->bindParam(':id', $this->id);
+            $stmt->bindParam(':name', $this->name);
+
+            // Execute query
+            if ($stmt->execute()) {
+                return true;
+            }
+            // print error if error
+            printf("Error: %s.\n", $stmt->error);
+            return false;
+            }
     }
