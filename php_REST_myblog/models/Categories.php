@@ -26,4 +26,24 @@
 
             return $stmt;
         }
+
+        public function read_single() {
+            // Create query
+            $query = 'SELECT * FROM ' . $this->table . ' WHERE id = ? LIMIT 0,1';
+
+            $stmt = $this->conn->prepare($query);
+
+            $stmt->bindParam(1, $this->id);
+
+            $stmt->execute();
+
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            // Fetch assoc array property binding
+            $this->id = $row['id'];
+            $this->name = $row['name'];
+            $this->created_at = $row['created_at'];
+
+            return $stmt;
+        }
     }
